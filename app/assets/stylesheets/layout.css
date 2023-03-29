@@ -1,0 +1,113 @@
+ul {
+  padding-left: .5em;
+}
+
+li {
+  list-style: none;
+
+}
+
+a {
+  text-decoration: none;
+  color: #5d5;
+  background-color: #262626;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #333;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #262626;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: "SourceCodePro";
+  font-weight: normal;
+  cursor: pointer;
+  color: #fe6;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.container {
+  width: 700px;
+  padding: 10px;
+}
+
+.grid-2 {
+  display: grid;
+  grid: auto / max-content auto;
+}
+
+.link {
+  color: #fe6;
+}
+
+.message {
+  margin-left: 1em;
+}
+
+.message-body {
+  color: #ddd;
+  margin-left: 10px;
+  word-wrap: anywhere;
+}
+
+.messages {
+  overflow-y: auto;
+  max-height: 250px;
+}
+
+.messages > div:last-child {
+  scroll-snap-align: end;
+}
+
+.text-small {
+  font-size: 0.75em;
+  color: #aaa;
+}
+
+.message-form {
+  margin-left: 1em;
+}
+
+.message-form form {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.message-form textarea {
+  background-color: transparent;
+  color: #5d5;
+  font-family: "SourceCodePro";
+  font-size: 1em;
+  border: 0;
+  padding: 0;
+  margin: 0 0 0 10px;
+  height: 21px;
+  resize: none;
+  width: 100%;
+}
+
+.message-form textarea:focus {
+  outline: none;
+}
+
+.room {
+  color: #9ef;
+}
+
+.user {
+  color: #fb6;
+}
+
+@media(max-width: 720px){
+  .container {
+    width: calc(100% - 20px);
+  }
+}

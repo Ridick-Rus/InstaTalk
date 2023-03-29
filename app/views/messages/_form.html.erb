@@ -1,0 +1,11 @@
+<div class="message-form grid-2">
+  <span>enter your message :</span>
+  <%= form_tag do |f| %>
+    <%= text_area_tag :message_body,
+                      '',
+                      class: 'form-control',
+                      placeholder: '_',
+                      autofocus: true
+    %>
+  <% end %>
+</div>

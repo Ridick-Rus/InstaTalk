@@ -1,0 +1,15 @@
+<div class="message grid-2">
+  <span class="message-title">
+    <span class="text-bold">
+      <%= message.user.nickname %>
+    </span>
+    <span class="text-small">
+      [<%= message.created_at.strftime("%H:%M") %>]
+    </span>
+    :
+  </span>
+  <span class="message-body">
+    <%= message.body %>
+  </span>
+</div>
+

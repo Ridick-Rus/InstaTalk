@@ -1,0 +1,9 @@
+<p class="room">room #<%= @room.id %>:</p>
+
+<div id="messages" class="messages" data-room-id=<%= @room.id %>>
+  <%= render @room.messages %>
+</div>
+
+<%= render 'messages/form' %>
+
+<p><%= link_to ":leave", root_path, class: "link" %></p>
