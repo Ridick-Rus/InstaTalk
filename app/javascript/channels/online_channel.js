@@ -28,7 +28,7 @@ function connectToOnlineChannel() {
         },
 
         addUser(usersBox, user) {
-            if (usersBox.querySelector(`#user_id_${id}`)) return;
+            if (usersBox.querySelector(`#user_id_${user.id}`)) return;
 
             let element = `<span id="user_id_${user.id}">[ <span class="user">${user.nickname}</span> ]</span>`
             usersBox.insertAdjacentHTML("beforeend", element);

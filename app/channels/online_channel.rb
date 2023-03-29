@@ -1,14 +1,13 @@
 class OnlineChannel < ApplicationCable::Channel
   def subscribed
     stream_from "OnlineChannel"
-    current_user.update(is_online: true);
 
-    OnlineService.new(user: current_user).perform
+    OnlineService.new(user: current_user, is_online: true).perform
   end
 
   def unsubscribed
-    current_user.update(is_online: false);
+    return if ActionCable.server.connections.count { |connection| connection.current_user == current_user } > 0
 
-    OnlineService.new(user: current_user).perform
+    OnlineService.new(user: current_user, is_online: false).perform
   end
 end
