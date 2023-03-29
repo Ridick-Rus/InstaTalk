@@ -1,13 +1,15 @@
 class OnlineChannel < ApplicationCable::Channel
+  after_unsubscribe :handle_offline
+
   def subscribed
     stream_from "OnlineChannel"
 
     OnlineService.new(user: current_user, is_online: true).perform
   end
 
-  def unsubscribed
-    return if ActionCable.server.connections.count { |connection| connection.current_user == current_user } > 0
+  private
 
-    OnlineService.new(user: current_user, is_online: false).perform
+  def handle_offline
+    HandleOfflineJob.set(wait: 5.seconds).perform_later(current_user)
   end
 end
