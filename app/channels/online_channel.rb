@@ -3,12 +3,12 @@ class OnlineChannel < ApplicationCable::Channel
     stream_from "OnlineChannel"
     current_user.update(is_online: true);
 
-    ActionCable.server.broadcast("OnlineChannel", { user: current_user })
+    OnlineService.new(user: current_user).perform
   end
 
   def unsubscribed
     current_user.update(is_online: false);
 
-    ActionCable.server.broadcast("OnlineChannel", { user: current_user })
+    OnlineService.new(user: current_user).perform
   end
 end

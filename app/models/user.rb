@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   before_create :generate_nickname
 
+  private
+
   def generate_nickname
     self.nickname = "#{Faker::Name.first_name.downcase}_#{Faker::Name.last_name.downcase}"
   end
